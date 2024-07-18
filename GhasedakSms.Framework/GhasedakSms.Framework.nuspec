@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
-  <metadata>
-    <id>$id$</id>
-    <version>1.0.0.1</version>
-    <title>GhasedakSms.Framework</title>
-    <authors>Amir Keshtkar</authors>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <license type="expression">MIT</license>
-     <icon>ghasedak.png</icon> 
-    <projectUrl>https://github.com/ghasedakapi/GhasedakSms.Framework</projectUrl>
-    <description>A cross platform integration library to send request on new Ghasedak Sms webservice</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-    <copyright>$copyright$</copyright>
-    <tags>Ghasedak Sms</tags>
-  </metadata>
+	<metadata>
+		<id>$id$</id>
+		<version>1.0.0.1</version>
+		<title>GhasedakSms.Framework</title>
+		<authors>Amir Keshtkar</authors>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<license type="expression">MIT</license>
+		<icon>ghasedak.png</icon>
+		<readme>README.md</readme>
+		<projectUrl>https://github.com/ghasedakapi/GhasedakSms.Framework</projectUrl>
+		<description>A cross platform integration library to send request on new Ghasedak Sms webservice</description>
+		<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+		<copyright>$copyright$</copyright>
+		<tags>Ghasedak Sms</tags>
+	</metadata>
 
 	<files>
 		<file src="ghasedak.png" target="ghasedak.png" />
+		<file src="..\README.md" target="README.md" />
 	</files>
 </package>
