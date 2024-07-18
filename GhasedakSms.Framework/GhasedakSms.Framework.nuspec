@@ -2,16 +2,20 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>1.0.0.0</version>
+    <version>1.0.0.1</version>
     <title>GhasedakSms.Framework</title>
     <authors>Amir Keshtkar</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
-    <!-- <icon>icon.png</icon> -->
+     <icon>ghasedak.png</icon> 
     <projectUrl>https://github.com/ghasedakapi/GhasedakSms.Framework</projectUrl>
     <description>A cross platform integration library to send request on new Ghasedak Sms webservice</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Ghasedak Sms</tags>
   </metadata>
+
+	<files>
+		<file src="ghasedak.png" target="ghasedak.png" />
+	</files>
 </package>
