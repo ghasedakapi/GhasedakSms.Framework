@@ -17,6 +17,7 @@ namespace GhasedakSms.Fremework.Dto
             public string Receptor { get; set; }
             public int Cost { get; set; }
             public string MessageId { get; set; }
+            public string ClientReferenceId { get; set; }
             public DateTime SendDate { get; set; }
         }
     }

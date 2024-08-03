@@ -14,8 +14,7 @@ namespace GhasedakSms.Fremework.Dto
             public string Receptor { get; set; }
             public string MessageId { get; set; }
             public int Cost { get; set; }
-
-            //are these outputs considered necessary?
+            public string ClientReferenceId { get; set; }
             public DateTime SendDate { get; set; }
             public string Message { get; set; }
         }
