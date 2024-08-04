@@ -2,7 +2,7 @@
 <package >
 	<metadata>
 		<id>GhasedakSms.Framework</id>
-		<version>1.0.3</version>
+		<version>1.0.4</version>
 		<title>GhasedakSms.Framework</title>
 		<authors>Amir Keshtkar</authors>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
