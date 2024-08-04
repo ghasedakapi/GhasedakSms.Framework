@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.Threading;
 using GhasedakSms.Fremework.Dto;
 using GhasedakSms.Framework.Dto;
-using Newtonsoft.Json;
 using System.Text;
 
 namespace GhasedakSms.Framework
@@ -23,14 +22,16 @@ namespace GhasedakSms.Framework
             _client.DefaultRequestHeaders.Add("Accept", "application/json");
             _client.DefaultRequestHeaders.Add("cache-control", "no-cache");
             _client.DefaultRequestHeaders.Add("ApiKey", apiKey);
+            _client.DefaultRequestHeaders.Add("Agent", "C#");
         }
 
         public async Task<ResponseDto<List<SmsStatusResponseItems>>> CheckSmsStatus(CheckSmsStatusInput query, CancellationToken cancellationToken = default)
         {
             var queryString = Helper.BuildQueryString($"{_url}CheckSmsStatus", new Dictionary<string, string>
             {
-                { "Type", query.Type.ToString() }
-            }, "Ids", query.Ids);
+                { "Type", query.Type.ToString() },
+                { "Ids", string.Join(",",query.Ids)}
+            });
 
             HttpResponseMessage response;
             try
@@ -49,7 +50,7 @@ namespace GhasedakSms.Framework
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<ResponseDto<List<SmsStatusResponseItems>>>(content);
+                var result = Helper.Deserialize<ResponseDto<List<SmsStatusResponseItems>>>(content);
                 return result;
             }
             else
@@ -57,7 +58,7 @@ namespace GhasedakSms.Framework
                 try
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<ResponseDto>(content);
+                    var result = Helper.Deserialize<ResponseDto>(content);
                     return new ResponseDto<List<SmsStatusResponseItems>>()
                     {
                         IsSuccess = result.IsSuccess,
@@ -96,7 +97,7 @@ namespace GhasedakSms.Framework
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<ResponseDto<AccountInformationResponse>>(content);
+                var result = Helper.Deserialize<ResponseDto<AccountInformationResponse>>(content);
                 return result;
             }
             else
@@ -104,7 +105,7 @@ namespace GhasedakSms.Framework
                 try
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<ResponseDto>(content);
+                    var result = Helper.Deserialize<ResponseDto>(content);
                     return new ResponseDto<AccountInformationResponse>()
                     {
                         IsSuccess = result.IsSuccess,
@@ -148,7 +149,7 @@ namespace GhasedakSms.Framework
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<ResponseDto<ReceivedSmsesResponse>>(content);
+                var result = Helper.Deserialize<ResponseDto<ReceivedSmsesResponse>>(content);
                 return result;
             }
             else
@@ -156,7 +157,7 @@ namespace GhasedakSms.Framework
                 try
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<ResponseDto>(content);
+                    var result = Helper.Deserialize<ResponseDto>(content);
                     return new ResponseDto<ReceivedSmsesResponse>()
                     {
                         IsSuccess = result.IsSuccess,
@@ -205,7 +206,7 @@ namespace GhasedakSms.Framework
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<ResponseDto<ReceivedSmsesPagingResponse>>(content);
+                var result = Helper.Deserialize<ResponseDto<ReceivedSmsesPagingResponse>>(content);
                 return result;
             }
             else
@@ -213,7 +214,7 @@ namespace GhasedakSms.Framework
                 try
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<ResponseDto>(content);
+                    var result = Helper.Deserialize<ResponseDto>(content);
                     return new ResponseDto<ReceivedSmsesPagingResponse>()
                     {
                         IsSuccess = result.IsSuccess,
@@ -256,7 +257,7 @@ namespace GhasedakSms.Framework
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<ResponseDto<CheckOtpTemplateResponse>>(content);
+                var result = Helper.Deserialize<ResponseDto<CheckOtpTemplateResponse>>(content);
                 return result;
             }
             else
@@ -264,7 +265,7 @@ namespace GhasedakSms.Framework
                 try
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<ResponseDto>(content);
+                    var result = Helper.Deserialize<ResponseDto>(content);
                     return new ResponseDto<CheckOtpTemplateResponse>()
                     {
                         IsSuccess = result.IsSuccess,
@@ -290,7 +291,7 @@ namespace GhasedakSms.Framework
             HttpResponseMessage response;
             try
             {
-                var jsonContent = JsonConvert.SerializeObject(command);
+                var jsonContent = Helper.Serialize(command);
                 var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
                 response = await _client.PostAsync($"{_url}SendSingleSMS", content, cancellationToken);
             }
@@ -306,7 +307,7 @@ namespace GhasedakSms.Framework
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<ResponseDto<SendSingleResponse>>(content);
+                var result = Helper.Deserialize<ResponseDto<SendSingleResponse>>(content);
                 return result;
             }
             else
@@ -314,7 +315,7 @@ namespace GhasedakSms.Framework
                 try
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<ResponseDto>(content);
+                    var result = Helper.Deserialize<ResponseDto>(content);
                     return new ResponseDto<SendSingleResponse>()
                     {
                         IsSuccess = result.IsSuccess,
@@ -339,7 +340,7 @@ namespace GhasedakSms.Framework
             HttpResponseMessage response;
             try
             {
-                var jsonContent = JsonConvert.SerializeObject(command);
+                var jsonContent = Helper.Serialize(command);
                 var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
                 response = await _client.PostAsync($"{_url}SendBulkSMS", content, cancellationToken);
             }
@@ -356,7 +357,7 @@ namespace GhasedakSms.Framework
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<ResponseDto<SendBulkResponse>>(content);
+                var result = Helper.Deserialize<ResponseDto<SendBulkResponse>>(content);
                 return result;
             }
             else
@@ -364,7 +365,7 @@ namespace GhasedakSms.Framework
                 try
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<ResponseDto>(content);
+                    var result = Helper.Deserialize<ResponseDto>(content);
                     return new ResponseDto<SendBulkResponse>()
                     {
                         IsSuccess = result.IsSuccess,
@@ -389,7 +390,7 @@ namespace GhasedakSms.Framework
             HttpResponseMessage response;
             try
             {
-                var jsonContent = JsonConvert.SerializeObject(command);
+                var jsonContent = Helper.Serialize(command);
                 var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
                 response = await _client.PostAsync($"{_url}SendPairToPairSMS", content, cancellationToken);
             }
@@ -405,7 +406,7 @@ namespace GhasedakSms.Framework
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<ResponseDto<SendPairToPairResponse>>(content);
+                var result = Helper.Deserialize<ResponseDto<SendPairToPairResponse>>(content);
                 return result;
             }
             else
@@ -413,7 +414,7 @@ namespace GhasedakSms.Framework
                 try
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<ResponseDto>(content);
+                    var result = Helper.Deserialize<ResponseDto>(content);
                     return new ResponseDto<SendPairToPairResponse>()
                     {
                         IsSuccess = result.IsSuccess,
@@ -438,7 +439,7 @@ namespace GhasedakSms.Framework
             HttpResponseMessage response;
             try
             {
-                var jsonContent = JsonConvert.SerializeObject(command);
+                var jsonContent = Helper.Serialize(command);
                 var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
                 response = await _client.PostAsync($"{_url}SendOtpWithParams", content, cancellationToken);
             }
@@ -454,7 +455,7 @@ namespace GhasedakSms.Framework
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<ResponseDto<SendOtpResponse>>(content);
+                var result = Helper.Deserialize<ResponseDto<SendOtpResponse>>(content);
                 return result;
             }
             else
@@ -462,7 +463,7 @@ namespace GhasedakSms.Framework
                 try
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<ResponseDto>(content);
+                    var result = Helper.Deserialize<ResponseDto>(content);
                     return new ResponseDto<SendOtpResponse>()
                     {
                         IsSuccess = result.IsSuccess,
@@ -487,7 +488,7 @@ namespace GhasedakSms.Framework
             HttpResponseMessage response;
             try
             {
-                var jsonContent = JsonConvert.SerializeObject(command);
+                var jsonContent = Helper.Serialize(command);
                 var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
                 response = await _client.PostAsync($"{_url}SendOtpSMS", content, cancellationToken);
             }
@@ -504,7 +505,7 @@ namespace GhasedakSms.Framework
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<ResponseDto<SendOtpResponse>>(content);
+                var result = Helper.Deserialize<ResponseDto<SendOtpResponse>>(content);
                 return result;
             }
             else
@@ -512,7 +513,7 @@ namespace GhasedakSms.Framework
                 try
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    var result = JsonConvert.DeserializeObject<ResponseDto>(content);
+                    var result = Helper.Deserialize<ResponseDto>(content);
                     return new ResponseDto<SendOtpResponse>()
                     {
                         IsSuccess = result.IsSuccess,

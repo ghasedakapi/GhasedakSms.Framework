@@ -10,9 +10,9 @@ namespace GhasedakSms.Fremework.Dto
         public string Message { get; set; }
         public string LineNumber { get; set; }
         public string Receptor { get; set; }
-        public SendStatus Status { get; set; }
-        public int Price { get; set; }
-        public DateTime SendDate { get; set; }
+        public SendStatus? Status { get; set; }
+        public int? Price { get; set; }
+        public DateTime? SendDate { get; set; }
     }
 
 }

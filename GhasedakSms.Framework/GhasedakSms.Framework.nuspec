@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
 	<metadata>
-		<id>$id$</id>
-		<version>1.0.2</version>
+		<id>GhasedakSms.Framework</id>
+		<version>1.0.3</version>
 		<title>GhasedakSms.Framework</title>
 		<authors>Amir Keshtkar</authors>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
