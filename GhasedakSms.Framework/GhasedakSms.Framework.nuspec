@@ -11,7 +11,7 @@
 		<readme>README.md</readme>
 		<projectUrl>https://github.com/ghasedakapi/GhasedakSms.Framework</projectUrl>
 		<description>A cross platform integration library to send request on new Ghasedak Sms webservice</description>
-		<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+		<releaseNotes>Add readme.</releaseNotes>
 		<copyright>$copyright$</copyright>
 		<tags>Ghasedak Sms</tags>
 	</metadata>
