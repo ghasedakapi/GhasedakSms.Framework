@@ -49,7 +49,7 @@ var accountInfo = await client.GetAccountInformation();
 ```csharp
 var receivedMessages = await client.GetReceivedSmses(new GetReceivedSmsInput
 {
-    LineNumber = "30005088",
+    LineNumber = "3000****",
     IsRead = true
 });
 ```
@@ -59,7 +59,7 @@ var receivedMessages = await client.GetReceivedSmses(new GetReceivedSmsInput
 ```csharp
 var receivedMessagesPaged = await client.GetReceivedSmsesPaging(new GetReceivedSmsPagingInput
 {
-    LineNumber = "30005088",
+    LineNumber = "3000****",
     IsRead = true,
     StartDate = DateTime.Now.AddDays(-7),
     EndDate = DateTime.Now,
@@ -132,7 +132,7 @@ var sendOtpWithParams = await client.SendOtpWithParams(new SendOtpWithParamsInpu
 ```csharp
 var sendSingle = await client.SendSingleSMS(new SendSingleSmsInput
 {
-    LineNumber = "30005088",
+    LineNumber = "3000****",
     ClientReferenceId = "testsingle",
     Message = "test single",
     Receptor = "0912*******",
@@ -145,7 +145,7 @@ var sendSingle = await client.SendSingleSMS(new SendSingleSmsInput
 ```csharp
 var sendBulk = await client.SendBulkSMS(new SendBulkInput
 {
-    LineNumber = "30005088",
+    LineNumber = "3000****",
     Message = "test bulk",
     Receptors = new List<string> { "0912*******", "0912*******" },
     ClientReferenceId = "testbulk",
@@ -163,7 +163,7 @@ var sendPair = await client.SendPairToPairSMS(new SendPairToPairInput
         new SendPairToPairSmsWebServiceDto
         {
             ClientReferenceId = "testpair",
-            LineNumber = "30005088",
+            LineNumber = "3000****",
             Message = "test pair to pair",
             Receptor = "0912*******",
             SendDate = DateTime.Now
