@@ -97,7 +97,6 @@
     <Compile Include="Dto\SendSingleSmsInput.cs" />
     <Compile Include="Dto\SmsStatusResponseItems.cs" />
     <Compile Include="Enum\MessageIdType.cs" />
-    <Compile Include="Enum\SendStatus.cs" />
     <Compile Include="Ghasedak.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
