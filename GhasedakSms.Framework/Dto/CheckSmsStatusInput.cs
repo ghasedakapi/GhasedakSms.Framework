@@ -1,7 +1,7 @@
-﻿using GhasedakSms.Fremework.Enum;
+﻿using GhasedakSms.Framework.Enum;
 using System.Collections.Generic;
 
-namespace GhasedakSms.Fremework.Dto
+namespace GhasedakSms.Framework.Dto
 {
     public class CheckSmsStatusInput
     {

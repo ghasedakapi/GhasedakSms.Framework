@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GhasedakSms.Fremework.Dto
+namespace GhasedakSms.Framework.Dto
 {
     public class CheckOtpTemplateResponse
     {
