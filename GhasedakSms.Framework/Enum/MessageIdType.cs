@@ -1,4 +1,4 @@
-﻿namespace GhasedakSms.Fremework.Enum
+﻿namespace GhasedakSms.Framework.Enum
 {
     public enum MessageIdType
     {

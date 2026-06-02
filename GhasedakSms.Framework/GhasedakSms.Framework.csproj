@@ -1,109 +1,82 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DA8D7E5B-8880-4E36-883C-960FBE089926}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GhasedakSms.Framework</RootNamespace>
-    <AssemblyName>GhasedakSms.Framework</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Core" />
-    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Text.Json, Version=8.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Json.8.0.4\lib\net462\System.Text.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Dto\AccountInformationResponse.cs" />
-    <Compile Include="Dto\CheckOtpTemplateResponse.cs" />
-    <Compile Include="Dto\CheckSmsStatusInput.cs" />
-    <Compile Include="Dto\GetOtpParametersInput.cs" />
-    <Compile Include="Dto\GetReceivedSmsInput.cs" />
-    <Compile Include="Dto\GetReceivedSmsPagingInput.cs" />
-    <Compile Include="Dto\ReceivedSmsesPagingResponse.cs" />
-    <Compile Include="Dto\ReceivedSmsesResponse.cs" />
-    <Compile Include="Dto\ResponseDto.cs" />
-    <Compile Include="Dto\SendBulkInput.cs" />
-    <Compile Include="Dto\SendBulkResponse.cs" />
-    <Compile Include="Dto\SendOldOtpInput.cs" />
-    <Compile Include="Dto\SendOtpInput.cs" />
-    <Compile Include="Dto\SendOtpResponse.cs" />
-    <Compile Include="Dto\SendPairToPairInput.cs" />
-    <Compile Include="Dto\SendPairToPairResponse.cs" />
-    <Compile Include="Dto\SendSingleResponse.cs" />
-    <Compile Include="Dto\SendSingleSmsInput.cs" />
-    <Compile Include="Dto\SmsStatusResponseItems.cs" />
-    <Compile Include="Enum\MessageIdType.cs" />
-    <Compile Include="Ghasedak.cs" />
-    <Compile Include="Helper.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net40;net47;net48</TargetFrameworks>
+		<RootNamespace>GhasedakSms.Framework</RootNamespace>
+		<AssemblyName>GhasedakSms.Framework</AssemblyName>
+		<LangVersion>7.3</LangVersion>
+		<Nullable>disable</Nullable>
+
+		<!-- NuGet package metadata -->
+		<PackageId>GhasedakSms.Framework</PackageId>
+		<Version>1.0.7</Version>
+		<Title>GhasedakSms.Framework</Title>
+		<Authors>Amir Keshtkar</Authors>
+		<Description>A cross platform integration library to send request on new Ghasedak Sms webservice</Description>
+		<PackageTags>Ghasedak Sms</PackageTags>
+		<PackageProjectUrl>https://github.com/ghasedakapi/GhasedakSms.Framework</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageIcon>ghasedak.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageReleaseNotes>Added support for .NET 4.0 and .NET 4.8 via multi-targeting.</PackageReleaseNotes>
+		<Copyright>Amir Keshtkar</Copyright>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<!-- Suppress auto-generated AssemblyInfo — the project still has Properties/AssemblyInfo.cs from the old-style format -->
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	</PropertyGroup>
+
+	<!-- Package icon and readme (included in NuGet package) -->
+	<ItemGroup>
+		<None Include="ghasedak.png" Pack="true" PackagePath="\" />
+		<None Include="..\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<!-- ===== .NET 4.0 dependencies ===== -->
+	<!-- net40 needs Newtonsoft.Json (System.Text.Json doesn't support net40) -->
+	<!-- and Microsoft.Bcl packages for async/await + HttpClient -->
+	<ItemGroup Condition="'$(TargetFramework)' == 'net40'">
+		<Reference Include="System" />
+		<Reference Include="System.Core" />
+		<Reference Include="System.Net.Http" />
+		<Reference Include="System.Web" />
+		<Reference Include="System.Xml" />
+
+		<PackageReference Include="Microsoft.Bcl" Version="1.1.10">
+			<ExcludeAssets>build</ExcludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Bcl.Async" Version="1.0.168">
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Net.Http" Version="2.2.29">
+			<ExcludeAssets>build</ExcludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+	<!-- ===== .NET 4.7 dependencies ===== -->
+	<ItemGroup Condition="'$(TargetFramework)' == 'net47'">
+		<Reference Include="System" />
+		<Reference Include="System.Core" />
+		<Reference Include="System.Net.Http" />
+		<Reference Include="System.Web" />
+		<Reference Include="System.Xml" />
+
+		<PackageReference Include="System.Text.Json" Version="8.0.4" />
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
+	</ItemGroup>
+
+	<!-- ===== .NET 4.8 dependencies ===== -->
+	<ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+		<Reference Include="System" />
+		<Reference Include="System.Core" />
+		<Reference Include="System.Net.Http" />
+		<Reference Include="System.Web" />
+		<Reference Include="System.Xml" />
+
+		<PackageReference Include="System.Text.Json" Version="8.0.4" />
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
+	</ItemGroup>
+
 </Project>
